@@ -1,6 +1,7 @@
-import express from "express";
-import cors from "cors";
-import urls from "routes/urls";
+const express = require("express");
+const cors = require("cors");
+const urls = require("./routes/urls");
+const getUrls = require("./routes/getUrls");
 
 const app = express();
 
@@ -10,6 +11,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/urls", urls);
+app.use("/", getUrls);
 
-const PORT = process.env.PORT || 8000;
+const PORT = 8000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
